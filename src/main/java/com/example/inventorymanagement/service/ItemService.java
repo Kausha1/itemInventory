@@ -11,10 +11,12 @@ public interface ItemService {
      ItemResponse updateItem(int id, Item request);
      ItemResponse getItem(int id);
      ItemResponse deleteItem(int id);
+     ItemResponse validate(int id, String type) ;
 
 
 
 
 
 
-}
+
+     }

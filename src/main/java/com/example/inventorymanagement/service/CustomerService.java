@@ -11,6 +11,7 @@ public interface CustomerService {
      CustomerResponse updateCustomer(int id, String contact);
      CustomerResponse getCustomer(int id);
      CustomerResponse deleteCustomer(int id);
+   CustomerResponse validate(int id, String type);
 
 
 

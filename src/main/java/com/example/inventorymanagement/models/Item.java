@@ -1,23 +1,17 @@
 package com.example.inventorymanagement.models;
 
-import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
-public class Item {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+ public class Item {
+
+
     private int itemId;
-    @NotNull
+
     private String name;
     private String description;
 
-    @NotNull
+
     private int price;
 
     public int getItemId() {

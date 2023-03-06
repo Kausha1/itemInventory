@@ -1,16 +1,29 @@
 package com.example.inventorymanagement.repo;
 
+import com.example.inventorymanagement.dto.CartItem;
+import com.example.inventorymanagement.models.Item;
 import com.example.inventorymanagement.models.Order;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
+import org.springframework.stereotype.Component;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-@Repository
-public interface OrderRepo extends CrudRepository<Order, Integer> {
-    List<Order> findAll();
-    Order findById(int id);
-    List<Order> findAllByCustomer(int id);
+@Component
+public class OrderRepo {
+   private final HashMap<Integer,Order>orderRepo=new HashMap<Integer,Order>();
+
+    public Order save(Order order){
+        orderRepo.put(order.getId(),order);
+        return order;
+    }
+    public void addItemList(int id, ArrayList<CartItem> itemArrayList){
+
+        orderRepo.get(id).setCartItems(new ArrayList<CartItem>(itemArrayList));
+    }
+
 
 
 }

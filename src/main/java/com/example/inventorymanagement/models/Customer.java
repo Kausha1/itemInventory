@@ -1,18 +1,14 @@
 package com.example.inventorymanagement.models;
 
-import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity
+
+
 public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private int customerId;
-    @NotNull
+
     private String name;
 
     private String contactDetails;
@@ -40,4 +36,5 @@ public class Customer {
     public void setContactDetails(String contactDetails) {
         this.contactDetails = contactDetails;
     }
+
 }

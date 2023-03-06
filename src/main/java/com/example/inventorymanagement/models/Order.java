@@ -1,39 +1,67 @@
 package com.example.inventorymanagement.models;
 
 import com.example.inventorymanagement.dto.CartItem;
-import com.sun.istack.NotNull;
-import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
-
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 
-@Entity
-@Data
 public class Order {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @NotNull
-    @ManyToOne(targetEntity = Customer.class)
     Customer customer;
-
     private int total;
-
-    @CreatedDate
-    @Column(name = "Invoice created at")
     private Date time;
+    private ArrayList<CartItem>cartItems;
 
-    public Order(Customer customer,int total){
-        this.customer=customer;
-        this.total=total;
+    public Order(int id,Customer customer, int total, Date time) {
+        this.id=id;
+        this.customer = customer;
+        this.total = total;
+        this.time = time;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public ArrayList<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(ArrayList<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
 
     public Order() {
+
 
     }
 }

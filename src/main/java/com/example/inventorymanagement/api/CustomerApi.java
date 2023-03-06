@@ -3,10 +3,12 @@ package com.example.inventorymanagement.api;
 
 import com.example.inventorymanagement.dto.*;
 import com.example.inventorymanagement.models.Customer;
+import com.example.inventorymanagement.models.Order;
 import com.example.inventorymanagement.service.OrderService;
 import com.example.inventorymanagement.service.imp.CartService;
 import com.example.inventorymanagement.service.imp.CustomerService;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -47,8 +49,8 @@ public class CustomerApi {
     }
 
     @GetMapping("/{id}/order")
-    OrderResponse addOrder(@PathVariable("id")int id){
-        return orderService.addOrder(id);
+    Order addOrder(@PathVariable("id")int id){
+         return orderService.addOrder(id);
     }
 
 

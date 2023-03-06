@@ -1,6 +1,6 @@
 package com.example.inventorymanagement.dto;
 
-import javax.persistence.Embeddable;
+
 
 
 public class CartItem {

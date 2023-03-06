@@ -46,8 +46,13 @@ public class CartService implements com.example.inventorymanagement.service.Cart
                cartItemResponse.setStatus(false);
                cartItemResponse.setResponse("cart is not valid");
            }else{
+               if(request.getQuantity()==0){
+                   cartRepo.getCart(id).remove(CartItemIndex);
+               }
+               else {
 
                    cartRepo.getCart(id).get(CartItemIndex).setQuantity(request.getQuantity());
+               }
 
                cartItemResponse.setCartItems(cartRepo.getCart(id));
 

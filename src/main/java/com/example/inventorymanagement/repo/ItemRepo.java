@@ -1,19 +1,52 @@
 package com.example.inventorymanagement.repo;
 
 import com.example.inventorymanagement.models.Item;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
+import org.springframework.stereotype.Component;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
-@Repository
-public interface ItemRepo extends CrudRepository<Item, Integer> {
 
-    List<Item> findAll();
+@Component
+public class ItemRepo {
 
-    @Override
-    Optional<Item> findById(Integer integer);
+    private final HashMap<Integer, Item> itemRepo=new HashMap<>();
+
+
+    public Item save(Item item){
+        itemRepo.put(item.getItemId(),item);
+        return item;
+    }
+
+    public List<Item> findAll(){
+        List<Item> itemList=new ArrayList<>();
+        for(Item item:itemRepo.values()){
+            itemList.add(item);
+        }
+        return itemList;
+
+    }
+
+    public Item findById(int id) throws NullPointerException{
+
+        Item item=itemRepo.get(id);
+        if(item==null){
+            throw new NullPointerException();
+        }
+        return item;
+
+    }
+
+    public void deleteById(int id){
+        itemRepo.remove(id);
+    }
+
+
+
+
 
 
 }
