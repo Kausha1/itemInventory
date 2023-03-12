@@ -3,9 +3,9 @@ package com.example.inventorymanagement.service.imp;
 import static com.example.inventorymanagement.utils.ItemUtil.updateDTO;
 
 import com.example.inventorymanagement.models.Item;
+import com.example.inventorymanagement.repo.IdGeneratorRepo;
 import com.example.inventorymanagement.repo.ItemRepo;
 import com.example.inventorymanagement.service.ItemService;
-import com.example.inventorymanagement.utils.Imp.ItemIdGenerator;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,14 +30,14 @@ public class ItemServiceImp implements ItemService {
 
 
   private final ItemRepo itemRepo;
-  private final ItemIdGenerator itemIdGenerator;
+  private final IdGeneratorRepo idGeneratorRepo;
 
   public List<Item> getAllItems() {
     return itemRepo.findAll();
   }
 
   public Item addItem(Item item) {
-    item.setItemId(itemIdGenerator.generator());
+    item.setItemId(idGeneratorRepo.getId("item"));
     return itemRepo.save(item);
   }
 

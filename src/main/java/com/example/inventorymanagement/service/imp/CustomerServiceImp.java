@@ -3,21 +3,22 @@ package com.example.inventorymanagement.service.imp;
 import com.example.inventorymanagement.models.Customer;
 import com.example.inventorymanagement.repo.CartRepo;
 import com.example.inventorymanagement.repo.CustomerRepo;
-import com.example.inventorymanagement.utils.Imp.CustomerIdGenerator;
+import com.example.inventorymanagement.repo.IdGeneratorRepo;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
 @Service
+@RequiredArgsConstructor
 public class CustomerServiceImp implements com.example.inventorymanagement.service.CustomerService {
 
-  @Autowired
-  CustomerRepo customerRepo;
-  @Autowired
-  CustomerIdGenerator customerIdGenerator;
 
-  @Autowired
+  private final CustomerRepo customerRepo;
+
+  private final IdGeneratorRepo idGeneratorRepo;
+
+
   CartRepo cartRepo;
 
   public List<Customer> getAllCustomer() {
@@ -25,38 +26,38 @@ public class CustomerServiceImp implements com.example.inventorymanagement.servi
   }
 
   public Customer addCustomer(Customer customer) {
-    customer.setCustomerId(customerIdGenerator.generator());
+    customer.setCustomerId(idGeneratorRepo.getId("customer"));
     cartRepo.addCart(customer.getCustomerId());
     return customerRepo.save(customer);
   }
 
-  public Customer updateCustomer(int id, String contact) throws Exception{
-      final Customer customer=findById(id);
-      customer.setContactDetails(contact);
-     return customer;
+  public Customer updateCustomer(int id, String contact) throws Exception {
+    final Customer customer = findById(id);
+    customer.setContactDetails(contact);
+    return customer;
 
   }
 
-  private Customer findByIdOrThrow(int id) throws Exception{
-    Customer customer=customerRepo.findById(id);
-    if(customer==null){
-      throw  new Exception("No such Customer Exist");
+  private Customer findByIdOrThrow(int id) throws Exception {
+    Customer customer = customerRepo.findById(id);
+    if (customer == null) {
+      throw new Exception("No such Customer Exist");
     }
     return customer;
   }
 
   public Customer findById(int id) throws Exception {
-   return findByIdOrThrow(id);
+    return findByIdOrThrow(id);
 
   }
 
 
-  public Customer deleteCustomer(int id) throws Exception{
+  public Customer deleteCustomer(int id) throws Exception {
 
-      final Customer customer = findById(id);
-      customerRepo.deleteById(id);
-      cartRepo.deleteById(id);
-      return customer;
+    final Customer customer = findById(id);
+    customerRepo.deleteById(id);
+    cartRepo.deleteById(id);
+    return customer;
   }
 
 

@@ -5,7 +5,6 @@ import static com.example.inventorymanagement.utils.ResponseUtils.okResponseEnti
 import com.example.inventorymanagement.dto.ResponseEntity;
 import com.example.inventorymanagement.models.Item;
 import com.example.inventorymanagement.service.ItemService;
-import com.example.inventorymanagement.service.imp.ItemServiceImp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

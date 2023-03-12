@@ -16,6 +16,4 @@ public interface CustomerService {
   Customer deleteCustomer(int id) throws Exception;
 
 
-
-
 }

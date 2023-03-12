@@ -7,7 +7,6 @@ import com.example.inventorymanagement.dto.CustomerUpdateRequest;
 import com.example.inventorymanagement.dto.ResponseEntity;
 import com.example.inventorymanagement.models.Customer;
 import com.example.inventorymanagement.service.CustomerService;
-import com.example.inventorymanagement.service.imp.CustomerServiceImp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

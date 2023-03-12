@@ -4,7 +4,8 @@ import com.example.inventorymanagement.dto.CartItem;
 import java.util.ArrayList;
 
 public class Cart {
-  ArrayList<CartItem>cartItemArrayList;
+
+  ArrayList<CartItem> cartItemArrayList;
 
   public Cart() {
     this.cartItemArrayList = new ArrayList<>();

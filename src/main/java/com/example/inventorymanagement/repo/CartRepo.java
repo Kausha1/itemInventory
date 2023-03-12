@@ -1,8 +1,6 @@
 package com.example.inventorymanagement.repo;
 
-import com.example.inventorymanagement.dto.CartItem;
 import com.example.inventorymanagement.models.Cart;
-import java.util.ArrayList;
 import java.util.HashMap;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -43,7 +41,6 @@ public class CartRepo {// In Memory
   public boolean isContainCart(int id) {
     return itemMap.containsKey(id);
   }
-
 
 
 }

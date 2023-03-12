@@ -23,6 +23,7 @@ public class CartServiceImp implements CartService {
     if (cart == null) {
       throw new Exception("No such Customer Exist");
     }
+    return cart;
   }
 
   public Cart addToCart(int id, CartItemRequest request) throws Exception {
