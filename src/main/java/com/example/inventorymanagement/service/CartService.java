@@ -1,12 +1,15 @@
 package com.example.inventorymanagement.service;
 
 import com.example.inventorymanagement.dto.CartItemRequest;
-import com.example.inventorymanagement.dto.CartItemResponse;
+import com.example.inventorymanagement.models.Cart;
 
 public interface CartService {
-     CartItemResponse showCart(int id);
-     CartItemResponse addToCart(int id, CartItemRequest request);
-     CartItemResponse updateCart(int id, CartItemRequest request);
+
+  Cart findById(int id) throws Exception;
+
+  Cart addToCart(int id, CartItemRequest request) throws Exception;
+
+  Cart updateCart(int id, CartItemRequest request) throws Exception;
 
 
 }

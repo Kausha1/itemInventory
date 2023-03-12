@@ -2,22 +2,22 @@ package com.example.inventorymanagement.dto;
 
 public class CartItemRequest {
 
-    private int itemId;
-    private int quantity;
+  private int itemId;
+  private int quantity;
 
-    public int getItemId() {
-        return itemId;
-    }
+  public int getItemId() {
+    return itemId;
+  }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
-    }
+  public void setItemId(int itemId) {
+    this.itemId = itemId;
+  }
 
-    public int getQuantity() {
-        return quantity;
-    }
+  public int getQuantity() {
+    return quantity;
+  }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
 }

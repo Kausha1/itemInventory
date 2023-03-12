@@ -1,44 +1,52 @@
 package com.example.inventorymanagement.api;
 
-import com.example.inventorymanagement.dto.ItemResponse;
-import com.example.inventorymanagement.models.Item;
-import com.example.inventorymanagement.service.imp.ItemService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import static com.example.inventorymanagement.utils.ResponseUtils.okResponseEntity;
 
-import java.util.List;
+import com.example.inventorymanagement.dto.ResponseEntity;
+import com.example.inventorymanagement.models.Item;
+import com.example.inventorymanagement.service.ItemService;
+import com.example.inventorymanagement.service.imp.ItemServiceImp;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/items")
 @RequiredArgsConstructor
 public class ItemApi {
 
-    private final ItemService itemService;
+  private final ItemService itemService;
 
-    @PostMapping("")
-    ItemResponse addItem(@RequestBody Item item) {
-        return itemService.addItem(item);
-    }
+  @PostMapping("")
+  ResponseEntity addItem(@RequestBody Item item) {
+    return okResponseEntity(itemService.addItem(item));
+  }
 
-    @GetMapping()
-    List<Item> getAllItems() {
-        return itemService.getAllItems();
-    }
+  @GetMapping()
+  ResponseEntity getAllItems() {
+    return okResponseEntity(itemService.getAllItems());
+  }
 
-    @GetMapping("/{id}")
-    ItemResponse getItem(@PathVariable("id") int id) {
-        return itemService.getItem(id);
-    }
+  @GetMapping("/{id}")
+  ResponseEntity getItem(@PathVariable("id") int id) throws Exception {
+    return okResponseEntity(itemService.findById(id));
+  }
 
-    @PutMapping("/{id}")
-    ItemResponse updateItem(@PathVariable("id") int id, @RequestBody Item item) {
-        return itemService.updateItem(id, item);
-    }
+  @PutMapping("/{id}")
+  ResponseEntity updateItem(@PathVariable("id") int id, @RequestBody Item item) throws Exception {
+    return okResponseEntity(itemService.updateItem(id, item));
+  }
 
-    @DeleteMapping("/{id}")
-    ItemResponse deleteItem(@PathVariable("id") int id) {
-        return itemService.deleteItem(id);
-    }
+  @DeleteMapping("/{id}")
+  ResponseEntity deleteItem(@PathVariable("id") int id) throws Exception {
+    return okResponseEntity(itemService.deleteItem(id));
+  }
 
 
 }

@@ -1,22 +1,21 @@
 package com.example.inventorymanagement.service;
 
-import com.example.inventorymanagement.dto.ItemResponse;
 import com.example.inventorymanagement.models.Item;
-
 import java.util.List;
 
 public interface ItemService {
-     List<Item> getAllItems();
-     ItemResponse addItem(Item item);
-     ItemResponse updateItem(int id, Item request);
-     ItemResponse getItem(int id);
-     ItemResponse deleteItem(int id);
-     ItemResponse validate(int id, String type) ;
+
+  List<Item> getAllItems();
+
+  Item addItem(Item item);
+
+  Item updateItem(int id, Item request) throws Exception;
+
+  Item findById(int id) throws Exception;
+
+  Item deleteItem(int id) throws Exception;
 
 
 
 
-
-
-
-     }
+}

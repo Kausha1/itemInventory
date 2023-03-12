@@ -7,61 +7,60 @@ import java.util.Date;
 
 public class Order {
 
-    private int id;
-    Customer customer;
-    private int total;
-    private Date time;
-    private ArrayList<CartItem>cartItems;
+  Customer customer;
+  private int id;
+  private int total;
+  private Date time;
+  private ArrayList<CartItem> cartItems;
 
-    public Order(int id,Customer customer, int total, Date time) {
-        this.id=id;
-        this.customer = customer;
-        this.total = total;
-        this.time = time;
-    }
+  public Order(int id, Customer customer, int total, Date time) {
+    this.id = id;
+    this.customer = customer;
+    this.total = total;
+    this.time = time;
+  }
 
-    public int getId() {
-        return id;
-    }
+  public Order() {
 
-    public void setId(int id) {
-        this.id = id;
-    }
+  }
 
-    public Customer getCustomer() {
-        return customer;
-    }
+  public int getId() {
+    return id;
+  }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+  public void setId(int id) {
+    this.id = id;
+  }
 
-    public int getTotal() {
-        return total;
-    }
+  public Customer getCustomer() {
+    return customer;
+  }
 
-    public void setTotal(int total) {
-        this.total = total;
-    }
+  public void setCustomer(Customer customer) {
+    this.customer = customer;
+  }
 
-    public Date getTime() {
-        return time;
-    }
+  public int getTotal() {
+    return total;
+  }
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+  public void setTotal(int total) {
+    this.total = total;
+  }
 
-    public ArrayList<CartItem> getCartItems() {
-        return cartItems;
-    }
+  public Date getTime() {
+    return time;
+  }
 
-    public void setCartItems(ArrayList<CartItem> cartItems) {
-        this.cartItems = cartItems;
-    }
+  public void setTime(Date time) {
+    this.time = time;
+  }
 
-    public Order() {
+  public ArrayList<CartItem> getCartItems() {
+    return cartItems;
+  }
 
-
-    }
+  public void setCartItems(ArrayList<CartItem> cartItems) {
+    this.cartItems = cartItems;
+  }
 }
